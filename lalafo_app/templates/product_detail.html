@@ -1,13 +1,21 @@
 
+<h1>Продукты</h1>
 
-{%for i in products %}
-<p style="color: black;">name: {{ i.product_name }}</p>
+<p style="color: black;">name: {{ products_detail.product_name }}</p>
 
-<p> {{ i.price }}</p>
-<p> {{ i.phone }}</p>
-<p> {{ i.description }}</p>
-<p> {{ i.product_type }}</p>
-<p> {{ i.category }}</p>
+<p> {{ products_detail.price }}</p>
+<p> {{ products_detail.phone }}</p>
+<p> {{ products_detail.description }}</p>
+<p> {{ products_detail.product_type }}</p>
+<p> {{ products_detail.category }}</p>
 
-{%endfor%}
+
+{% if products_detail.product_image %}
+   <p><img src="{{ product_detail.product_image.url }}"></p>
+{% else %}
+   <p>NO IMAGE</p>
+{%andif%}
+
+<button><a href="{% url 'product_update' products_detail.pk  %}">Update</a></button>
+<button><a href="{% url 'product_delete' products_detail.pk  %}">Delete</a></button>
 

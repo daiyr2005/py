@@ -1,0 +1,12 @@
+<p><h1>Are you sure? DO you want delete this product? </h1></p>
+
+<button>Yes</button>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button><a type="submit">Delete</a></button>
+
+</form>
+    <button><a href="{% url 'product-list'  %}">Back</a></button>
+

@@ -1,0 +1,12 @@
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button><a type="submit">Update</a></button>
+
+</form>
+    <button><a href="{% url 'product-list'  %}">Back</a></button>
+
+
+
+

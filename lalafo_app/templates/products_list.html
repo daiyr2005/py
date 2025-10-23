@@ -1,9 +1,10 @@
 <h1>Продукты:</h1>
 
-
 {% for i in products %}
 
-<p>name: {{ i.product_name }}</p>
-<p>{{ i.price }}</p>
+<p><a href="{% url 'product_detail' i.pk %} ">name: {{ i.product_name }}</a></p>
+<p>{{ i.products.price }}</p>
 
-{% endfor %}
+{%endfor%}
+
+<button ><a href="{% url 'product_detail' %}">Create</a></button>
