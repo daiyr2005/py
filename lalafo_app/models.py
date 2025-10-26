@@ -1,3 +1,4 @@
+from email.policy import default
 
 from phonenumber_field.modelfields import PhoneNumberField
 from django.db import models
@@ -12,7 +13,7 @@ class Category(models.Model):
 class Product(models.Model):
     product_name = models.CharField(max_length=50)
     price = models.PositiveIntegerField()
-    phone = PhoneNumberField()
+    phone_number= PhoneNumberField(default='+996', null=True, blank=True)
     description = models.TextField()
     product_type = models.BooleanField()
     category = models.ForeignKey(Category,on_delete=models.CASCADE)

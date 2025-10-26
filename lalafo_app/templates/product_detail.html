@@ -1,20 +1,25 @@
 
 <h1>Продукты</h1>
+<table>
+    <tr><th>
+<p style="color: black;">Аты: {{ products_detail.product_name }}</p>
 
-<p style="color: black;">name: {{ products_detail.product_name }}</p>
+<p>Суммасы: {{ products_detail.price }}</p>
+<p>Тел: {{ products_detail.phone_number }}</p>
+<p>Комент: {{ products_detail.description }}</p>
+<p>Б/У: {{ products_detail.product_type }}</p>
+<p>Категори: {{ products_detail.category }}</p>
 
-<p> {{ products_detail.price }}</p>
-<p> {{ products_detail.phone }}</p>
-<p> {{ products_detail.description }}</p>
-<p> {{ products_detail.product_type }}</p>
-<p> {{ products_detail.category }}</p>
-
-
+</th>
+<th>
 {% if products_detail.product_image %}
-   <p><img src="{{ product_detail.product_image.url }}"></p>
+   <p><img src="{{ products_detail.product_image.url }}"></p>
 {% else %}
    <p>NO IMAGE</p>
-{%andif%}
+{%endif%}
+</th>
+</tr>
+</table>
 
 <button><a href="{% url 'product_update' products_detail.pk  %}">Update</a></button>
 <button><a href="{% url 'product_delete' products_detail.pk  %}">Delete</a></button>
