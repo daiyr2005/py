@@ -15,6 +15,13 @@ class ProductListView(ListView):
     context_object_name = 'products'
     template_name = 'products_list.html'
 
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        query = self.request.GET.get('q')
+        if query:
+            queryset = queryset.filter(product_name__icontains=query)
+        return queryset
+
 
 class ProductDetailView(DetailView):
     queryset = Product.objects.all()
@@ -26,6 +33,7 @@ class ProductCreateView(CreateView):
     form_class = ProductForm
     template_name = 'product_create.html'
     success_url = reverse_lazy('product-list')
+
 
 class ProductUpdateView(UpdateView):
     queryset = Product.objects.all()
